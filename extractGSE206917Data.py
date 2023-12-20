@@ -20,7 +20,7 @@ con_count = 1
 column_mapping = {}
 
 for col in tissue_df.columns:
-    if 'read_count' in col:
+    if 'fpkm' in col:
         if 'Recurrent' in col or 'RR' in col:
             new_col = f'RR{rr_count}'
             rr_count += 1
@@ -45,7 +45,7 @@ def process_and_merge(file_name, final_df):
     column_mapping = {}
 
     for col in df.columns:
-        if 'read_count' in col:
+        if 'fpkm' in col:
             if 'Recurrent' in col or 'RR' in col:
                 new_col = f'RR{rr_count}'
                 rr_count += 1
@@ -64,6 +64,12 @@ def process_and_merge(file_name, final_df):
 # 处理其他两个数据集并合并
 final_df = process_and_merge('GSE206917_U87_gene_expression.xls', final_df)
 final_df = process_and_merge('GSE206917_U251_gene_expression.xls', final_df)
+
+# 移除gene_symbol的重复项
+final_df = final_df[~final_df.index.duplicated(keep='first')]
+
+# 去掉 NA 项
+final_df = final_df.dropna()
 
 # 在写入CSV之前对列进行排序
 # 先提取出所有Con和RR列
