@@ -4,11 +4,11 @@ library(dplyr)
 library(readr)
 
 # 变量定义
-dataFile <- "./datasets/processed/GSE206917.csv"
+dataFile <- "./datasets/processed/overall.csv"
 limmaOutFile <- "./result/all.limmaOut.csv"
-theNumberOfCon <- 8
-theNumberOfRR <- 8
-PValueThreshold <- 0.5
+theNumberOfCon <- 23
+theNumberOfRR <- 23
+PValueThreshold <- 0.05
 significantGenesFile <- "./result/significant_genes_from_limma.csv"
 correlationThreshold <- 0.5
 highCorrelationGenesFile <- "./result/NAT10_high_correlation_genes.csv"

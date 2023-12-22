@@ -3,7 +3,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 # 读取数据
-file_path = './datasets/processed/GSE206917.csv'
+file_path = './datasets/processed/overall.csv'
 data = pd.read_csv(file_path, index_col=0)
 
 # 检查NAT10是否在数据中
