@@ -6,8 +6,8 @@ library(readr)
 # 变量定义
 dataFile <- "./datasets/processed/overall.csv"
 limmaOutFile <- "./result/all.limmaOut.csv"
-theNumberOfCon <- 23
-theNumberOfRR <- 23
+theNumberOfCon <- 8
+theNumberOfRR <- 8
 PValueThreshold <- 0.05
 significantGenesFile <- "./result/significant_genes_from_limma.csv"
 correlationThreshold <- 0.5
